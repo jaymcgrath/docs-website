@@ -148,7 +148,7 @@ Some elements of NRQL used in charts don’t make sense in the streaming context
   <thead>
     <tr>
       <th style={{ width: "300px" }}>
-        **Clause**
+        **Component**
       </th>
 
       <th>
@@ -163,8 +163,8 @@ Some elements of NRQL used in charts don’t make sense in the streaming context
         `SINCE` and `UNTIL`
       </td>
       <td>
-        Example:  
-        
+        Example:
+
         ```
         SELECT percentile(largestContentfulPaint, 75) FROM PageViewTiming WHERE (appId = 837807) SINCE yesterday
         ```
@@ -182,6 +182,19 @@ Some elements of NRQL used in charts don’t make sense in the streaming context
         In NRQL queries, the `TIMESERIES` clause is used to return data as a time series broken out by a specified period of time.
 
         For NRQL alerts, the equivalent property of a signal is the aggregation window.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `histogram()`
+      </td>
+
+      <td>
+        The `histogram( )` aggregator function is used to generate histograms.
+
+        `histogram()` is not compatible with NRQL alerting: histogram aggregations can not be formatted as a time series.
+
       </td>
     </tr>
 
